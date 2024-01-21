@@ -1,0 +1,26 @@
+<div>
+    <div class="container py-5">
+        <h2>Categoría</h2>
+        <!-- Botón desplegable (dropdown) -->
+        <button type="button" class="btn btn-primary dropdown-toggle my-button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Ordenar
+        </button>
+        <ul class="dropdown-menu" style="cursor: pointer;">
+            <li><a class="dropdown-item">Más reciente</a></li>
+            <li><a class="dropdown-item">Precio: mayor a menor</a></li>
+            <li><a class="dropdown-item">Precio: menor a mayor</a></li>
+        </ul>
+        <!-- -------- -->
+
+        <div class="row">
+            <div *ngFor="let p of productList" class="col-md-6 col-lg-4 mb-4 mb-md-0">
+                <app-product-card [product]="p"></app-product-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center"> <!-- Nuevo contenedor para centrar solo el botón "Cargar más" -->
+        <button (click)="loadMore()" *ngIf="currentPage < totalPagesLength" class="btn btn-primary mb-5">Cargar más</button>
+    </div>
+</div>

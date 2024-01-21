@@ -9,6 +9,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { ProductCardComponent } from './component/product-card/product-card.component';
 import { ProductPageComponent } from './component/product-page/product-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductResultsComponent } from './component/product-results/product-results.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    ProductResultsComponent
   ],
   imports: [
     BrowserModule,

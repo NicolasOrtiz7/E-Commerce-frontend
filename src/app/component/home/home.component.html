@@ -35,7 +35,9 @@
         </button>
     </div>
     <!-- FINAL CAROUSEL -->
+
     <br><br>
+
     <!-- INICIO CATEGORY CARDS -->
     <h2>Categorias</h2>
     <div class="d-flex flex-row my-div-category-card">
@@ -64,12 +66,20 @@
         </div>
     </div>
     <!-- FINAL CATEGORY CARDS -->
+
     <br><br>
+
     <!-- INICIO PRODUCT CARDS -->
     <h2>Destacados</h2>
-    <div>
-        <app-product-card></app-product-card>
+    
+    <div class="container py-5">
+        <div class="row">
+            <div *ngFor="let p of productList" class="col-md-6 col-lg-4 mb-4 mb-md-0">
+                <app-product-card [product]="p"></app-product-card>
+            </div>
+        </div>
     </div>
+    
     <!-- FINAL PRODUCT CARDS -->
 
 

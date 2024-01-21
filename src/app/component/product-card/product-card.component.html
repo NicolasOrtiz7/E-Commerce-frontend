@@ -1,57 +1,27 @@
-<section style="background-color: #eee;">
-    <div class="container py-5">
-        <div class="row">
-
-            <!-- Botones de números de páginas -->
-            <!-- <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li *ngFor="let page of totalPages; index as i"  (click)="changePage(i, $event)" class="page-item"><a class="page-link" href="#">{{i+1}}</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav> -->
-
-            <div *ngFor="let p of productList" class="col-md-6 col-lg-4 mb-4 mb-md-0">
-                <div class="card" style="margin-bottom: 25px;">
-                    <a href="">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp"
-                            class="card-img-top" alt="Gaming Laptop" />
-                    </a>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <p class="small"><a href="#!" class="text-muted">{{p.category.name}}</a></p>
-                            <p class="small text-danger"><s>${{p.price}}</s></p>
-                        </div>
-
-                        <div class="d-flex justify-content-between mb-3">
-                            <h5 class="mb-0">{{p.name}}</h5>
-                            <h5 class="text-dark mb-0">${{p.price}}</h5>
-                        </div>
-
-                        <div class="d-flex justify-content-between mb-2">
-                            <p class="text-muted mb-0">En stock: <span class="fw-bold">{{p.productStock.quantity}}</span></p>
-                            <div class="ms-auto text-warning">
-                                <i class="fa fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button (click)="loadMore()" *ngIf="currentPage < totalPagesLength" class="btn btn-primary">Cargar más</button>
-
-        </div>
+<div class="card" style="margin-bottom: 25px;">
+  <div *ngIf="product.important == true" class="badge">Destacado</div>
+  <a href="">
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp" class="card-img-top"
+      alt="Gaming Laptop" />
+  </a>
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <p class="small"><a href="#!" class="text-muted">{{product.category.name}}</a></p>
+      <p class="small text-danger"><s>${{product.price}}</s></p>
     </div>
-</section>
+    <div class="d-flex justify-content-between mb-3">
+      <h5 class="mb-0">{{product.name}}</h5>
+      <h5 class="text-dark mb-0">${{product.price}}</h5>
+    </div>
+    <div class="d-flex justify-content-between mb-2">
+      <p class="text-muted mb-0">En stock: <span class="fw-bold">{{product.productStock.quantity}}</span></p>
+      <div class="ms-auto text-warning">
+        <i class="fa fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,12 +16,13 @@
                         Categorías
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Ver todo</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li *ngFor="let c of categoryList">
+                            <a [routerLink]="['/search']" [queryParams]="{category: c.name}" class="dropdown-item" href="#">{{c.name}}</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
