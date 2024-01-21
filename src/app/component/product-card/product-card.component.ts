@@ -31,8 +31,8 @@ export class ProductCardComponent implements OnInit{
     )
   }
 
-  loadMore(i: number){
-    this.productService.getProducts(i).subscribe(
+  loadMore(){
+    this.productService.getProducts(this.currentPage + 1).subscribe(
       data => {
         this.currentPage++
         this.productList = [...this.productList, ...data.content];
