@@ -7,9 +7,8 @@
             Ordenar
         </button>
         <ul class="dropdown-menu" style="cursor: pointer;">
-            <li><a class="dropdown-item">Más reciente</a></li>
-            <li><a class="dropdown-item">Precio: mayor a menor</a></li>
-            <li><a class="dropdown-item">Precio: menor a mayor</a></li>
+            <li><button (click)="orderProducts('ASC')" class="dropdown-item">Precio: menor a mayor</button></li>
+            <li><button (click)="orderProducts('DESC')" class="dropdown-item">Precio: mayor a menor</button></li>
         </ul>
         <!-- -------- -->
 
@@ -20,7 +19,7 @@
         </div>
     </div>
 
-    <div class="text-center"> <!-- Nuevo contenedor para centrar solo el botón "Cargar más" -->
-        <button (click)="loadMore()" *ngIf="currentPage < totalPagesLength" class="btn btn-primary mb-5">Cargar más</button>
+    <div class="text-center"> 
+        <button (click)="loadMore()" *ngIf="currentPage < totalPagesLength - 1" class="btn btn-primary mb-5">Cargar más</button>
     </div>
 </div>

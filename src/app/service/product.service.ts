@@ -13,12 +13,16 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(page: number): Observable<any>{
+  getAllProducts(page: number): Observable<any>{
     return this.http.get<Product[]>(this.URL + "?page=" + page);
   }
   
   getImportantProducts(): Observable<any>{
     return this.http.get<Product[]>(this.URL + "/search/important");
+  }
+  
+  getProductsByCategory(category: string, page: number = 0): Observable<any>{
+    return this.http.get<Product[]>(this.URL + "/search?category=" + category + "&page=" + page);
   }
 
 }
