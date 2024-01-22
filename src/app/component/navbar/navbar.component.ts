@@ -17,16 +17,17 @@ export class NavbarComponent implements OnInit {
   subtotal: number;
 
   constructor(private categoryService: CategoryService, private cartService: ShoppingCartService) {
-    // Se suscribe al ShoppingService para mantener la lista actualizada
+    // Se suscribe al ShoppingService para mantener la lista actualizada. Patrón Observable
     this.cartService.cart$.subscribe(cart => {
       this.shoppingCart = cart;
-      this.calculateSubtotal();
+    });
+    this.cartService.subtotal$.subscribe(subtotal => {
+      this.subtotal = subtotal;
     });
   }
 
   ngOnInit(): void {
     this.getCategories();
-    this.calculateSubtotal();
   }
 
   getCategories() {
@@ -42,12 +43,6 @@ export class NavbarComponent implements OnInit {
     event.stopPropagation(); // Evita que el dropdown se cierre al eliminar un producto
 
     this.cartService.removeProductFromCart(productId);
-
-    this.calculateSubtotal();
-  }
-
-  calculateSubtotal() {
-    this.subtotal = this.shoppingCart.reduce((total, p) => total + (p.price * p.quantityInCart), 0);
   }
 
 }

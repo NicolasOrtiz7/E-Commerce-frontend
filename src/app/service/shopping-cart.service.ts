@@ -10,8 +10,12 @@ export class ShoppingCartService {
   private cartSubject = new BehaviorSubject<Product[]>([]);
   cart$ = this.cartSubject.asObservable();
 
+  private subtotalSubject = new BehaviorSubject<number>(0);
+  subtotal$ = this.subtotalSubject.asObservable();
+
   constructor() {
     this.getCartFromLocalStorage();
+    this.calculateSubtotal();
   }
 
   getCart(): Product[] {
@@ -21,6 +25,7 @@ export class ShoppingCartService {
   updateCart(newCart: Product[]): void {
     this.cartSubject.next(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
+    this.calculateSubtotal();
   }
 
   addProductToCart(product: Product): void {
@@ -56,6 +61,12 @@ export class ShoppingCartService {
     if (cartString !== null) {
       this.cartSubject.next(JSON.parse(cartString));
     }
+  }
+
+  calculateSubtotal(): void {
+    const cart = this.getCart();
+    const subtotal = cart.reduce((total, p) => total + (p.price * p.quantityInCart), 0);
+    this.subtotalSubject.next(subtotal);
   }
 
 }

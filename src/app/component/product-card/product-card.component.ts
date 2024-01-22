@@ -13,22 +13,12 @@ export class ProductCardComponent {
 
   shoppingCart: Product[] = [];
 
-  subtotal: number;
-
   constructor(private cartService: ShoppingCartService) {
-    // Se suscribe al ShoppingService para mantener la lista actualizada
-    this.cartService.cart$.subscribe(cart => {
-      this.shoppingCart = cart;
-      this.calculateSubtotal();
-    });
   }
 
   addProductToCart(product: Product) {
     this.cartService.addProductToCart(product);
   }
 
-  calculateSubtotal() {
-    this.subtotal = this.shoppingCart.reduce((total, p) => total + (p.price * p.quantityInCart), 0);
-  }
 
 }

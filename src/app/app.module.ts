@@ -10,6 +10,8 @@ import { ProductCardComponent } from './component/product-card/product-card.comp
 import { ProductPageComponent } from './component/product-page/product-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductResultsComponent } from './component/product-results/product-results.component';
+import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { ProductResultsComponent } from './component/product-results/product-res
     FooterComponent,
     ProductCardComponent,
     ProductPageComponent,
-    ProductResultsComponent
+    ProductResultsComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
