@@ -9,6 +9,8 @@ export class Product {
 
     category: ProductCategory;
     productStock: ProductStock;
+
+    quantityInCart: number = 0;
 }
 
 export class ProductCategory{

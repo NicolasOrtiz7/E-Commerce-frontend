@@ -31,24 +31,25 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="bi bi-cart"></i></a>
-                    <ul class="dropdown-menu dropdown-cart" role="menu">
-                        <li>
+                    <ul class="dropdown-menu dropdown-cart" role="menu" style="width: 500px;">
+                        <li *ngFor="let p of shoppingCart">
                             <span class="item">
                                 <span class="item-left">
-                                    <img src="https://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg"
-                                        alt="" />
+                                    <img [src]="p.image" style="width: 100px;" alt="" />
                                     <span class="item-info">
-                                        <span>Item name</span>
-                                        <span>price: 27$</span>
+                                        <span>{{p.name}} <strong>x{{p.quantityInCart}}</strong></span>
+                                        <span class="fw-bold">${{p.price * p.quantityInCart}}</span>
                                     </span>
                                 </span>
                                 <span class="item-right">
-                                    <button class="btn btn-danger"><i class="bi bi-x-lg"></i></button>
+                                    <button (click)="removeProductFromCart(p.productId, $event)" class="btn btn-danger"><i
+                                            class="bi bi-x-lg"></i></button>
                                 </span>
                             </span>
                         </li>
                         <hr class="dropdown-divider">
-                        <button class="btn btn-primary">Ver Carrito</button>
+                        <button class="btn btn-primary" style="margin: 10px;">Ver Carrito</button>
+                        <strong> SUBTOTAL: ${{subtotal}}</strong>
                     </ul>
                 </li>
 
