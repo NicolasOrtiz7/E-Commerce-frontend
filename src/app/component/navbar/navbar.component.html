@@ -21,10 +21,39 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li *ngFor="let c of categoryList">
-                            <a [routerLink]="['/search']" [queryParams]="{category: c.name}" class="dropdown-item" href="#">{{c.name}}</a>
+                            <a [routerLink]="['/search']" [queryParams]="{category: c.name}" class="dropdown-item"
+                                href="#">{{c.name}}</a>
                         </li>
                     </ul>
                 </li>
+
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-cart"></i></a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="https://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg"
+                                        alt="" />
+                                    <span class="item-info">
+                                        <span>Item name</span>
+                                        <span>price: 27$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-danger"><i class="bi bi-x-lg"></i></button>
+                                </span>
+                            </span>
+                        </li>
+                        <hr class="dropdown-divider">
+                        <button class="btn btn-primary">Ver Carrito</button>
+                    </ul>
+                </li>
+
+
+
             </ul>
             <form class="d-flex mx-auto justify-content-center" role="search">
                 <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
