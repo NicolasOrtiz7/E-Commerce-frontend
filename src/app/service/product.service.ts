@@ -24,5 +24,9 @@ export class ProductService {
   getProductsByCategory(category: string, page: number = 0): Observable<any>{
     return this.http.get<Product[]>(this.URL + "/search?category=" + category + "&page=" + page);
   }
+  
+  getProductsByKeyword(keyword: string, page: number = 0): Observable<any>{
+    return this.http.get<Product[]>(this.URL + "/search?keyword=" + keyword + "&page=" + page);
+  }
 
 }

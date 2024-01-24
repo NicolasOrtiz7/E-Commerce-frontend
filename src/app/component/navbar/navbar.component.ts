@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product, ProductCategory } from 'src/app/model/product';
 import { CategoryService } from 'src/app/service/category.service';
 import { ShoppingCartService } from 'src/app/service/shopping-cart.service';
@@ -16,7 +17,11 @@ export class NavbarComponent implements OnInit {
 
   subtotal: number;
 
-  constructor(private categoryService: CategoryService, private cartService: ShoppingCartService) {
+  keyword: string;
+
+  constructor(private categoryService: CategoryService,
+    private cartService: ShoppingCartService,
+    private router: Router) {
     // Se suscribe al ShoppingService para mantener la lista actualizada. Patrón Observable
     this.cartService.cart$.subscribe(cart => {
       this.shoppingCart = cart;
@@ -37,6 +42,10 @@ export class NavbarComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+  getProductsByKeyword() {
+    this.router.navigate(["/products"], { queryParams: { keyword: this.keyword } });
   }
 
   removeProductFromCart(productId: number, event: any) {

@@ -7,7 +7,7 @@ import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.c
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'search', component: ProductResultsComponent},
+  {path: 'products', component: ProductResultsComponent},
   {path: 'card', component: ProductCardComponent},
   {path: 'cart', component: ShoppingCartComponent},
   {path: '**', redirectTo: 'home'},

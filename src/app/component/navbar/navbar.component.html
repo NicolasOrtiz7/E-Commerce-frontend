@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a routerLink="/home" class="nav-link active" aria-current="page">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -16,12 +16,12 @@
                         Categorías
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Ver todo</a></li>
+                        <li><a routerLink="/products" class="dropdown-item" href="#">Ver todo</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li *ngFor="let c of categoryList">
-                            <a [routerLink]="['/search']" [queryParams]="{category: c.name}" class="dropdown-item"
+                            <a [routerLink]="['/products']" [queryParams]="{category: c.name}" class="dropdown-item"
                                 href="#">{{c.name}}</a>
                         </li>
                     </ul>
@@ -42,13 +42,13 @@
                                     </span>
                                 </span>
                                 <span class="item-right">
-                                    <button (click)="removeProductFromCart(p.productId, $event)" class="btn btn-danger"><i
-                                            class="bi bi-x-lg"></i></button>
+                                    <button (click)="removeProductFromCart(p.productId, $event)"
+                                        class="btn btn-danger"><i class="bi bi-x-lg"></i></button>
                                 </span>
                             </span>
                         </li>
                         <hr class="dropdown-divider">
-                        <button class="btn btn-primary" style="margin: 10px;">Ver Carrito</button>
+                        <button routerLink="/cart" class="btn btn-primary" style="margin: 10px;">Ver Carrito</button>
                         <strong> SUBTOTAL: ${{subtotal}}</strong>
                     </ul>
                 </li>
@@ -56,9 +56,10 @@
 
 
             </ul>
-            <form class="d-flex mx-auto justify-content-center" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            <form (ngSubmit)="getProductsByKeyword()" class="d-flex mx-auto justify-content-center" role="search">
+                <input [(ngModel)]="keyword" placeholder="Buscar por nombre" name="keyword" autocomplete="off"
+                    class="form-control me-2" type="search" aria-label="Search">
+                <button [disabled]="!keyword" class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
