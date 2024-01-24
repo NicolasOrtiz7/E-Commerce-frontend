@@ -1,6 +1,6 @@
 <div>
     <!-- INICIO CAROUSEL -->
-    <div id="carouselExampleIndicators my-container-carousel2" class="carousel slide">
+    <div id="carouselExampleIndicators" class="carousel slide my-container-carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -9,7 +9,7 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner my-container-carousel">
+        <div class="carousel-inner my-images-carousel">
             <div class="carousel-item active">
                 <img src="https://media.tycsports.com/files/2023/06/24/584696/messi_862x485.webp?v=1"
                     class="d-block w-100" alt="...">
@@ -22,17 +22,18 @@
                 <img src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blte0037e9a9c00faf2/6480a698b7e802dae8e332bf/Messi.jpg?auto=webp&format=pjpg&width=3840&quality=60"
                     class="d-block w-100" alt="...">
             </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
     <!-- FINAL CAROUSEL -->
 
@@ -71,7 +72,7 @@
 
     <!-- INICIO PRODUCT CARDS -->
     <h2>Destacados</h2>
-    
+
     <div class="container py-5">
         <div class="row">
             <div *ngFor="let p of productList" class="col-md-6 col-lg-4 mb-4 mb-md-0">
@@ -79,7 +80,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- FINAL PRODUCT CARDS -->
 
 
