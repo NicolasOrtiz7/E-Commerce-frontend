@@ -41,7 +41,8 @@
                                             <h6 class="mb-0">$ {{p.price}}</h6>
                                         </div>
                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                            <button (click)="removeProductFromCart(p.productId, $event)" class="text-muted btn"><i style="font-size: 30px;"
+                                            <button (click)="removeProductFromCart(p.productId, $event)"
+                                                class="text-muted btn"><i style="font-size: 30px;"
                                                     class="bi bi-trash"></i></button>
                                         </div>
                                         <hr class="my-4">
@@ -95,7 +96,8 @@
                                     </div>
 
                                     <button type="button" class="btn btn-dark btn-block btn-lg"
-                                        data-mdb-ripple-color="dark">Registrar / Iniciar sesión</button>
+                                        data-mdb-ripple-color="dark" data-bs-toggle="modal"
+                                        data-bs-target="#modalAddress">Siguiente</button>
 
                                 </div>
                             </div>
@@ -106,3 +108,226 @@
         </div>
     </div>
 </section>
+
+
+<!-- INICIO MODAL 1 : Dirección -->
+<div id="modalAddress" class="modal">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Datos de entrega</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: rgb(225, 246, 252);">
+
+
+                <div class="container p-0" style="width: 500px;">
+                    <div class="card px-4">
+                        <p class="h8 py-3">Dirección de entrega</p>
+                        <div class="row gx-3">
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Email</p>
+                                    <input [(ngModel)]="customer.email" class="form-control mb-3" type="text" placeholder="Nombre del receptor"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Ciudad</p>
+                                    <input [(ngModel)]="orderDetails.city" class="form-control mb-3" type="text" placeholder="Ciudad o localidad">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Dirección</p>
+                                    <input [(ngModel)]="orderDetails.address" class="form-control mb-3" type="text" placeholder="Calle y número">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="btn mb-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#modalPayment">Siguiente (1/3)</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL 1 -->
+
+<!-- INICIO MODAL 2 Datos de pago -->
+<div id="modalPayment" class="modal">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Datos de pago</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: aliceblue;">
+
+
+                <div class="row">
+                    <div class="col-4">
+
+                        <strong style="font-size: 30px;">Selecciona método de pago</strong>
+                        <br><br>
+
+                        <form class="pb-3">
+                            <div class="d-flex flex-row pb-3">
+                                <div class="d-flex align-items-center pe-2">
+                                    <input class="form-check-input" type="radio" name="visa" id="visa"
+                                        value="" aria-label="..." checked />
+                                </div>
+                                <div class="rounded border d-flex w-100 p-3 align-items-center">
+                                    <p class="mb-0">
+                                        <img width="40px" src="https://cdn.iconscout.com/icon/free/png-128/free-visa-3-226460.png?f=webp" alt="">Visa Debit
+                                        Card
+                                    </p>
+                                    <div class="ms-auto">************3456</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-row">
+                                <div class="d-flex align-items-center pe-2">
+                                    <input class="form-check-input" type="radio" name="mastercard" id="mastercard"
+                                        value="" aria-label="..." />
+                                </div>
+                                <div class="rounded border d-flex w-100 p-3 align-items-center">
+                                    <p class="mb-0">
+                                        <img width="40px" src="https://cdn.iconscout.com/icon/free/png-512/free-mastercard-25-675722.png?f=webp&w=256" alt="">Mastercard
+                                        Office
+                                    </p>
+                                    <div class="ms-auto">************1038</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-row">
+                                <div class="d-flex align-items-center pe-2">
+                                    <input class="form-check-input" type="radio" name="paypal" id="paypal"
+                                        value="" aria-label="..." />
+                                </div>
+                                <div class="rounded border d-flex w-100 p-3 align-items-center">
+                                    <p class="mb-0">
+                                        <img width="30px" src="https://cdn.iconscout.com/icon/free/png-512/free-paypal-4-226455.png?f=webp&w=256" alt="">PayPal
+                                    </p>
+                                    <div class="ms-auto">************1038</div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                    <div class="container col-7 p-0" style="width: 500px;">
+                        <div class="card px-4">
+                            <p class="h8 py-3">Detalles de pago</p>
+                            <p class="fw-light">Deshabilitado</p>
+                            <div class="row gx-3">
+                                <div class="col-12">
+                                    <div class="d-flex flex-column">
+                                        <p class="text mb-1">Nombre del titular</p>
+                                        <input disabled class="form-control mb-3" type="text" placeholder="Nombre que aparece en la tarjeta"
+                                            value="">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex flex-column">
+                                        <p class="text mb-1">Número de tarjeta</p>
+                                        <input disabled class="form-control mb-3" type="text"
+                                            placeholder="1234 5678 435678">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex flex-column">
+                                        <p class="text mb-1">Expiración</p>
+                                        <input disabled class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex flex-column">
+                                        <p class="text mb-1">CVV/CVC</p>
+                                        <input disabled class="form-control mb-3 pt-2 " type="password"
+                                            placeholder="***">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="btn mb-3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#modalSummary">Siguiente (2/3)</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                data-bs-target="#modalAddress">Volver</button>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL 2 -->
+
+<!-- INICIO MODAL 3 Resumen -->
+<div id="modalSummary" class="modal">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Resumen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of shoppingCart">
+                            <td style="width: 110px;">
+                                <img [src]="p.image" alt="" style="width: 100px;">
+                            </td>
+                            <td>{{p.name}}</td>
+                            <td>{{p.quantityInCart}}</td>
+                            <td>${{p.price * p.quantityInCart}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div class="card-footer border-0 px-2 py-3"
+                style="background-color: #a8729a; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+                    Total a pagar <span class="h2 mb-0 ms-2">${{total}}</span></h5>
+            </div>
+            <button type="button" class="btn btn-success">Comprar (3/3)</button>
+            <button (click)="saveOrder()" class="btn btn-danger">Prueba</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                data-bs-target="#modalPayment">Volver</button>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL 3 -->

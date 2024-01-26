@@ -26,5 +26,5 @@
       </div>
     </div>
   </div>
-  <button (click)="addProductToCart(product)">Agregar a carrito</button>
+  <button [disabled]="product.productStock.quantity === 0" (click)="addProductToCart(product)">Agregar a carrito</button>
 </div>

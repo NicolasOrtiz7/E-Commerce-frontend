@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Customer, Order, OrderDetails, OrderItems } from 'src/app/model/order';
 import { Product } from 'src/app/model/product';
+import { OrderService } from 'src/app/service/order.service';
 import { ShoppingCartService } from 'src/app/service/shopping-cart.service';
 
 @Component({
@@ -12,12 +14,12 @@ export class ShoppingCartComponent {
   shoppingCart: Product[] = [];
 
   subtotal: number;
-
   total: number;
 
   selectedShipping: string;
 
-  constructor(private cartService: ShoppingCartService) {
+  constructor(private cartService: ShoppingCartService, private orderService: OrderService) {
+
     // Se suscribe al ShoppingService para mantener la lista actualizada. Patrón Observable
     this.cartService.cart$.subscribe(cart => {
       this.shoppingCart = cart;
@@ -26,7 +28,50 @@ export class ShoppingCartComponent {
       this.subtotal = subtotal;
       this.total = this.subtotal;
     });
+
+    // Datos de ORDER    
+    this.order.customer = this.customer;
+    this.order.orderDetails = this.orderDetails;
+    this.order.orderItems = this.orderItems;
   }
+
+
+  // ------------------ Datos para generar una ORDEN ------------------
+
+  customer: Customer = new Customer();
+
+  order: Order = new Order();
+  orderDetails: OrderDetails = new OrderDetails();
+  orderItems: OrderItems[] = [];
+
+  // implementar lógica para procesar los pagos
+
+  saveOrder(){
+    this.setItems();
+    this.customer.customerId = 1; // ID temporal hasta implementar seguridad
+    this.orderDetails.payment = "PAYPAL"; // Payment temporal hasta implementar pagos
+
+    console.log(this.order);
+    console.log(JSON.stringify(this.order));
+    
+
+    this.orderService.saveOrder(this.order).subscribe(
+      data => {
+        console.log(data);
+        localStorage.removeItem("cart");
+      },
+      err => console.log(err)
+    )
+    
+  }
+
+  setItems(){
+    this.shoppingCart.forEach(p =>{
+      this.orderItems.push(new OrderItems(p.productId, p.quantityInCart));
+    })
+  }
+
+  // ----------------------------------------------------
 
   // Guardar valores en base de datos
   shippingOptions: any = [
