@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductResultsComponent } from './component/product-results/product-results.component';
 import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.component';
 import { FormsModule } from '@angular/forms';
+import { AdminProductsComponent } from './component/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './component/admin-orders/admin-orders.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     ProductCardComponent,
     ProductPageComponent,
     ProductResultsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    AdminProductsComponent,
+    AdminOrdersComponent
   ],
   imports: [
     BrowserModule,

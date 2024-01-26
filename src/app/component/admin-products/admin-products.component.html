@@ -1,0 +1,181 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a routerLink="home" class="dropdown-toggle">Home</a>
+            </li>
+            <li>
+                <a href="#">Usuarios</a>
+            </li>
+            <li>
+                <a href="#">Ordenes</a>
+            </li>
+            <li>
+                <a href="#">Productos</a>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="" class="download">Download source</a>
+            </li>
+            <li>
+                <a href="" class="article">Back to article</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn my-btn-bg">
+                    <i class="fas fa-align-left"></i>
+                    <span><i style="font-size: 20px;" class="bi bi-list"></i></span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+            </div>
+        </nav>
+
+        <div>
+            <h2>Crear nuevo producto</h2>
+
+            <form class="row g-3">
+                <div class="col-md-6">
+                    <label for="productName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="productName">
+                </div>
+                <div class="col-md-2">
+                    <label for="productPrice" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="productPrice">
+                </div>
+                <div class="col-md-2">
+                    <label for="productStock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="productStock">
+                </div>
+                <div class="col-12">
+                    <label for="productDescription">Descripción:</label>
+                    <textarea class="form-control" rows="5" id="productDescription" name="text"></textarea>
+                </div>
+                <div class="col-md-4">
+                    <label for="productCategory" class="form-label">Categoría</label>
+                    <select id="productCategory" class="form-select">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                    <br>
+                    <div>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Crear categoría <i class="bi bi-caret-down-fill"></i>
+                        </button>
+                        <form class="dropdown-menu p-4">
+                            <div class="mb-3">
+                                <label for="exampleDropdownFormEmail2" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="categoryName" name="newCategoryName">
+                            </div>
+                            <div class="mb-3">
+                            </div>
+                            <button type="submit" class="btn btn-success">Crear</button>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="col-12">
+                        <div class="form-check" style="font-size: 20px;">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Destacado
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-12">
+                        <label for="productImage">Imagen:</label>
+                        <input type="file" accept="image/jpeg, image/png" id="productImage" name="image">
+                    </div>
+                </div>
+                <div class="col-12" style="margin-top: 70px;">
+                    <button type="submit" class="btn btn-success">Crear producto</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="line"></div>
+
+        <div>
+            <h2>Productos</h2>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="line"></div>
+
+        <div>
+            <h2>Lorem Ipsum Dolor</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit
+                anm id est laborum.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div>
+            <h3>Lorem Ipsum Dolor</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit
+                anim id est laborum.</p>
+        </div>
+
+    </div>
+</div>
