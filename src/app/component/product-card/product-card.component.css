@@ -10,3 +10,7 @@
     color: #fff;
     padding: 3px 10px;
 }
+
+.img-blur{
+    filter: grayscale(100%) saturate(0);
+}

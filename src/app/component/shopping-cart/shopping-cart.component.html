@@ -29,7 +29,7 @@
                                                 <i class="fas fa-minus"></i>
                                             </button>
 
-                                            <input id="form1" min="0" name="quantity" value="1" type="number"
+                                            <input min="0" name="quantity" value="1" type="number"
                                                 class="form-control form-control-sm" />
 
                                             <button class="btn btn-link px-2"
@@ -128,20 +128,20 @@
                             <div class="col-12">
                                 <div class="d-flex flex-column">
                                     <p class="text mb-1">Email</p>
-                                    <input [(ngModel)]="customer.email" class="form-control mb-3" type="text" placeholder="Nombre del receptor"
-                                        value="">
+                                    <input [(ngModel)]="customer.email" class="form-control mb-3" type="text" placeholder="Nombre/email del receptor"
+                                        value="customerEmail">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex flex-column">
                                     <p class="text mb-1">Ciudad</p>
-                                    <input [(ngModel)]="orderDetails.city" class="form-control mb-3" type="text" placeholder="Ciudad o localidad">
+                                    <input [(ngModel)]="orderDetails.city" class="form-control mb-3" type="text" placeholder="Ciudad o localidad" value="city">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex flex-column">
                                     <p class="text mb-1">Dirección</p>
-                                    <input [(ngModel)]="orderDetails.address" class="form-control mb-3" type="text" placeholder="Calle y número">
+                                    <input [(ngModel)]="orderDetails.address" class="form-control mb-3" type="text" placeholder="Calle y número" value="address">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -235,8 +235,7 @@
                                 <div class="col-12">
                                     <div class="d-flex flex-column">
                                         <p class="text mb-1">Nombre del titular</p>
-                                        <input disabled class="form-control mb-3" type="text" placeholder="Nombre que aparece en la tarjeta"
-                                            value="">
+                                        <input disabled class="form-control mb-3" type="text" placeholder="Nombre que aparece en la tarjeta">
                                     </div>
                                 </div>
                                 <div class="col-12">

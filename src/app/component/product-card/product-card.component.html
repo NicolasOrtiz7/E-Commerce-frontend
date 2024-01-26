@@ -1,7 +1,7 @@
 <div class="card" style="margin-bottom: 25px;">
   <div *ngIf="product.important == true" class="badge">Destacado</div>
   <a href="">
-    <img [src]="product.image" class="card-img-top"
+    <img [src]="product.image" [ngClass]="{'img-blur': product.productStock.quantity === 0}" class="card-img-top"
       alt="Gaming Laptop" />
   </a>
   <div class="card-body">
@@ -26,5 +26,5 @@
       </div>
     </div>
   </div>
-  <button [disabled]="product.productStock.quantity === 0" (click)="addProductToCart(product)">Agregar a carrito</button>
+  <button [disabled]="product.productStock.quantity === 0" (click)="addProductToCart(product)">{{product.productStock.quantity === 0 ? "No hay stock": "Agregar a carrito"}}</button>
 </div>
