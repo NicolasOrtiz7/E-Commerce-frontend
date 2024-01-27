@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Environments } from '../environments';
-import { Product, StockEntity } from '../model/product';
+import { Product, ProductCategory, StockEntity } from '../model/product';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -32,10 +32,32 @@ export class ProductService {
     return this.http.get<Product[]>(this.URL + "/search?keyword=" + keyword + "&page=" + page);
   }
 
+  // --------- Categories ---------
+
+  getAllCategories(){
+
+  }
+
+  saveCategory(cat: ProductCategory){
+
+  }
+
+  updateCategory(catId: number, cat: ProductCategory){
+
+  }
+
+  deleteCategory(catId: number){
+
+  }
+
   // --------- Stock ---------
 
   getAllStock(page: number): Observable<any>{
     return this.http.get<StockEntity[]>(this.URL + "/stock?page=" + page);
+  }
+
+  updateStock(productId: number, quantity: number){
+    
   }
 
 }

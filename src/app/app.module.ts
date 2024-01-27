@@ -14,6 +14,7 @@ import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.c
 import { FormsModule } from '@angular/forms';
 import { AdminProductsComponent } from './component/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './component/admin-orders/admin-orders.component';
+import { AdminNavbarComponent } from './component/admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminOrdersComponent } from './component/admin-orders/admin-orders.comp
     ProductResultsComponent,
     ShoppingCartComponent,
     AdminProductsComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    AdminNavbarComponent,
   ],
   imports: [
     BrowserModule,
