@@ -23,3 +23,9 @@ export class ProductStock{
     stockId: string;
     quantity: number;
 }
+
+export class StockEntity{
+    stockId: number;
+    quantity: number;
+    product: Product;
+}

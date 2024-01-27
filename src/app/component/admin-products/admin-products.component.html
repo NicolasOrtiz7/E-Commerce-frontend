@@ -50,6 +50,115 @@
         </nav>
 
         <div>
+            <h2>Gestor de stock</h2>
+            
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">ID</th>
+                        <th scope="col" style="width: 200px;">Nombre</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of stockList">
+                        <td style="width: 60px;">
+                            <img [src]="p.product.image" width="50px" alt="">
+                        </td>
+                        <td>{{p.stockId}}</td>
+                        <td>{{p.product.name}}</td>
+                        <td>
+                            <input type="number" [value]="p.quantity">
+                        </td>
+                        <td>
+                            <button class="btn btn-success">Guardar</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li (click)="changeStockPage(currentStockPage - 1, $event)" class="page-item">
+                        <button class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </button>
+                    </li>
+                    <li *ngFor="let page of totalStockPages; index as i" (click)="changeStockPage(i, $event)"
+                        class="page-item">
+                        <button [ngClass]="{'bg-blue': i === currentStockPage}" class="page-link">{{i+1}}</button>
+                    </li>
+                    <li (click)="changeStockPage(currentStockPage + 1, $event)" class="page-item">
+                        <button class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="line"></div>
+
+        <div>
+            <h2>Productos</h2>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">ID</th>
+                        <th scope="col" style="width: 200px;">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col" style="width: 10px;">Destacado</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of productList">
+                        <td style="width: 60px;">
+                            <img [src]="p.image" width="50px" alt="">
+                        </td>
+                        <td>{{p.productId}}</td>
+                        <td>{{p.name}}</td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.important}}</td>
+                        <td>{{p.productStock.quantity}}</td>
+                        <td>{{p.category.name}}</td>
+                        <td>
+                            <button class="btn btn-secondary">Editar</button> &nbsp;
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li (click)="changeProductPage(currentProductPage - 1, $event)" class="page-item">
+                        <button class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </button>
+                    </li>
+                    <li *ngFor="let page of totalProductPages; index as i" (click)="changeProductPage(i, $event)"
+                        class="page-item">
+                        <button [ngClass]="{'bg-blue': i === currentProductPage}" class="page-link">{{i+1}}</button>
+                    </li>
+                    <li (click)="changeProductPage(currentProductPage + 1, $event)" class="page-item">
+                        <button class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="line"></div>
+
+        <div>
             <h2>Crear nuevo producto</h2>
 
             <form class="row g-3">
@@ -116,66 +225,12 @@
         <div class="line"></div>
 
         <div>
-            <h2>Productos</h2>
-
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>Sección</h2>
+            <p>Para agregar más datos o información</p>
         </div>
 
         <div class="line"></div>
 
-        <div>
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit
-                anm id est laborum.</p>
-        </div>
-
-        <div class="line"></div>
-
-        <div>
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit
-                anim id est laborum.</p>
-        </div>
 
     </div>
 </div>

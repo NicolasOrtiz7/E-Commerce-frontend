@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Environments } from '../environments';
-import { Product } from '../model/product';
+import { Product, StockEntity } from '../model/product';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,6 +12,9 @@ export class ProductService {
   private URL: string = Environments.URL + "/products"
 
   constructor(private http: HttpClient) { }
+
+  
+  // --------- Products ---------
 
   getAllProducts(page: number): Observable<any>{
     return this.http.get<Product[]>(this.URL + "?page=" + page);
@@ -27,6 +30,12 @@ export class ProductService {
   
   getProductsByKeyword(keyword: string, page: number = 0): Observable<any>{
     return this.http.get<Product[]>(this.URL + "/search?keyword=" + keyword + "&page=" + page);
+  }
+
+  // --------- Stock ---------
+
+  getAllStock(page: number): Observable<any>{
+    return this.http.get<StockEntity[]>(this.URL + "/stock?page=" + page);
   }
 
 }
