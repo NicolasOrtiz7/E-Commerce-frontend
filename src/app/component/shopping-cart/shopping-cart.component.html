@@ -321,7 +321,7 @@
                     Total a pagar <span class="h2 mb-0 ms-2">${{total}}</span></h5>
             </div>
             <button type="button" class="btn btn-success">Comprar (3/3)</button>
-            <button (click)="saveOrder()" class="btn btn-danger">Prueba</button>
+            <button *ngIf="enabledButton == 1" (click)="saveOrder()" class="btn btn-danger">Prueba</button>
             <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                 data-bs-target="#modalPayment">Volver</button>
             <div class="modal-footer">

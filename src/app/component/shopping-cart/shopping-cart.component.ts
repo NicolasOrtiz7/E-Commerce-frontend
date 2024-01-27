@@ -46,9 +46,12 @@ export class ShoppingCartComponent {
 
   // implementar lógica para procesar los pagos
 
+  enabledButton: number = 1;
   saveOrder(){
+    this.enabledButton = 0; // Para evitar que hagan doble click al botón de pagar
     this.setItems();
     this.customer.customerId = 1; // ID temporal hasta implementar seguridad
+    this.customer.email = "leo@gmail.com";
     this.orderDetails.payment = "PAYPAL"; // Payment temporal hasta implementar pagos
 
     console.log(this.order);
@@ -57,7 +60,7 @@ export class ShoppingCartComponent {
 
     this.orderService.saveOrder(this.order).subscribe(
       data => {
-        console.log(data);
+        location.reload();
         localStorage.removeItem("cart");
       },
       err => console.log(err)

@@ -1,1 +1,108 @@
-<p>admin-orders works!</p>
+<div class="wrapper">
+    <!-- Page Content  -->
+    <div id="content">
+
+        <app-admin-navbar></app-admin-navbar>
+
+        <div style="overflow: scroll;">
+            <h2>Historial de ordenes</h2>
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div id="datatable_filter" class="dataTables_filter"><label>Buscar:<input type="search" class="form-control form-control-sm" placeholder="id o email"
+                                aria-controls="datatable"></label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table id="datatable"
+                                class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                                style="border-collapse: collapse; border-spacing: 0px; width: 100%;"
+                                aria-describedby="datatable_info">
+                                <thead>
+                                    <tr>
+                                        <th>ID Orden</th>
+                                        <th>Total</th>
+                                        <th>Fecha</th>
+                                        <th>Pago</th>
+                                        <th>Comprador</th>
+                                        <th>Estado</th>
+                                        <th>Productos</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 0px;"
+                                            aria-label="Action: activate to sort column ascending">Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let o of ordersList" class="odd">
+                                        <td style="width: 10px;">
+                                            <a class="font-weight-bold">#{{o.orderId}}</a>
+                                        </td>
+                                        <td style="width: 10px;">${{o.orderDetails.total}}</td>
+                                        <td style="width: 100px;">{{o.datetime}}</td>
+                                        <td style="width: 20px;">{{o.orderDetails.payment}}
+                                        </td>
+                                        <td style="width: 100px;">{{o.customer.email}}</td>
+                                        <td style="width: 20px;"><span
+                                                class="badge bg-success-subtle text-success">Pagado</span>
+                                        </td>
+                                        <td style="width: 100px;">
+                                            <ul>
+                                                <li *ngFor="let p of o.orderItems.slice(0, 3)">
+                                                    {{p.product.name}} x {{p.quantity}}</li>
+                                                <button *ngIf="o.orderItems.length > 3"
+                                                    class="btn btn-outline-secondary">más...</button>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-secondary">Detalles</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-7">
+
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li (click)="changePage(currentPage - 1, $event)"
+                                            class="page-item">
+                                            <button class="page-link" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </button>
+                                        </li>
+                                        <li *ngFor="let page of totalPages; index as i"
+                                            (click)="changePage(i, $event)" class="page-item">
+                                            <button [ngClass]="{'bg-blue': i === currentPage}"
+                                                class="page-link">{{i+1}}</button>
+                                        </li>
+                                        <li (click)="changePage(currentPage + 1, $event)"
+                                            class="page-item">
+                                            <button class="page-link" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div>
+            <h2>Sección</h2>
+            <p>Para agregar más datos o información</p>
+        </div>
+
+        <div class="line"></div>
+
+    </div>
+</div>
