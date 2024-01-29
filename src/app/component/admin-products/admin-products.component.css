@@ -8,6 +8,13 @@
     background-color: rgb(186, 227, 255)
 }
 
+form input, textarea, select, div{
+    margin-bottom: 20px;
+}
+form p {
+    margin-bottom: 0px;
+}
+
 
 /*
     DEMO STYLE

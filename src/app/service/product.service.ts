@@ -32,10 +32,22 @@ export class ProductService {
     return this.http.get<Product[]>(this.URL + "/search?keyword=" + keyword + "&page=" + page);
   }
 
+  getProductById(id: number){
+    return this.http.get<Product>(this.URL + "/" + id);
+  }
+
+  saveProduct(product: Product){
+    return this.http.post(this.URL, product);
+  }
+
+  updateProduct(productId: number, product: Product){
+    return this.http.put(this.URL + "/" + productId, product);
+  }
+
   // --------- Categories ---------
 
   getAllCategories(){
-
+    return this.http.get<ProductCategory[]>(this.URL + "/categories");
   }
 
   saveCategory(cat: ProductCategory){

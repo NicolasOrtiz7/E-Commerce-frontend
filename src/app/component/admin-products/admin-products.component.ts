@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, StockEntity } from 'src/app/model/product';
+import { NgForm } from '@angular/forms';
+import { Product, ProductCategory, ProductStock, StockEntity } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -12,17 +13,36 @@ export class AdminProductsComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+
+    /* Inicializar Producto nuevo */
+    this.product.category = this.category;
+    this.product.productStock = this.stock;
+
+    /* Inicializar Producto editable */
+    this.productEditable.category = this.categoryEditable;
+
     this.inicializarSidebar();
+    this.getCategories();
     this.getProducts(this.currentProductPage);
     this.getStock(this.currentStockPage);
   }
 
   // -------------- Productos --------------
 
+  /* Paginación */
   productList: Product[] = [];
   currentProductPage: number = 0;
   totalProductPages: Array<number>;
   totalProductPagesLength: number;
+
+  /* Crear nuevo producto */
+  product: Product = new Product();
+  category: ProductCategory = new ProductCategory();
+  stock: ProductStock = new ProductStock();
+
+  /* Editar producto */
+  productEditable: Product = new Product();
+  categoryEditable: ProductCategory = new ProductCategory();
 
   getProducts(pageNumber: number) {
     this.productService.getAllProducts(pageNumber).subscribe(
@@ -41,6 +61,51 @@ export class AdminProductsComponent implements OnInit {
     this.getProducts(i);
   }
 
+  getProductById(id: number) {
+    this.productService.getProductById(id).subscribe(
+      data => this.productEditable = data,
+      err => console.log(err)
+    )
+  }
+
+  saveProduct() {
+    this.productService.saveProduct(this.product).subscribe(
+      data => {
+        alert("Guardado correctamente");
+        this.ngOnInit();
+      },
+      err => alert("ERROR AL CREAR")
+    )
+  }
+
+  updateProduct(productId: number) {
+    console.log(this.productEditable);
+    console.log(JSON.stringify(this.productEditable));
+
+    this.productService.updateProduct(productId, this.productEditable).subscribe(
+      data => {
+        alert("Editado correctamente");
+        this.ngOnInit();
+      },
+      err => console.log(err)      
+    )
+
+  }
+
+  saveCategory() {
+
+  }
+
+  // -------------- Categorías --------------
+
+  categoriesList: ProductCategory[] = [];
+
+  getCategories() {
+    this.productService.getAllCategories().subscribe(
+      data => this.categoriesList = data,
+      err => console.log(err)
+    )
+  }
 
   // -------------- Stock --------------
 
@@ -58,7 +123,7 @@ export class AdminProductsComponent implements OnInit {
       }
     )
   }
-  
+
   changeStockPage(i: number, event: any) {
     event.preventDefault();
     this.currentStockPage = i;

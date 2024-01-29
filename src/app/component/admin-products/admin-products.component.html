@@ -25,7 +25,7 @@
                         <td>{{p.stockId}}</td>
                         <td>{{p.product.name}}</td>
                         <td>
-                            <input style="width: 40px;" type="number" [value]="p.quantity">
+                            <input style="width: 80px;" type="number" [value]="p.quantity">
                         </td>
                         <td>
                             <button class="btn btn-success">Guardar</button>
@@ -80,7 +80,11 @@
                         <td>{{p.price}}</td>
                         <td>{{p.category.name}}</td>
                         <td>
-                            <button class="btn btn-secondary">Editar</button> &nbsp;
+
+                            <button (click)="getProductById(p.productId)" class="btn btn-secondary" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight">
+                                Editar</button> &nbsp;
                             <button class="btn btn-danger">Eliminar</button>
                         </td>
                     </tr>
@@ -112,28 +116,33 @@
         <div>
             <h2>Crear nuevo producto</h2>
 
-            <form class="row g-3">
+            <form (ngSubmit)="saveProduct()" class="row g-3">
                 <div class="col-md-6">
-                    <label for="productName" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="productName">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input [(ngModel)]="product.name" name="name" type="text" class="form-control" id="name">
                 </div>
+
                 <div class="col-md-2">
-                    <label for="productPrice" class="form-label">Precio</label>
-                    <input type="number" class="form-control" id="productPrice">
+                    <label for="price" class="form-label">Precio</label>
+                    <input [(ngModel)]="product.price" name="price" type="number" class="form-control" id="price">
                 </div>
+
                 <div class="col-md-2">
-                    <label for="productStock" class="form-label">Stock</label>
-                    <input type="number" class="form-control" id="productStock">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input [(ngModel)]="stock.quantity" name="stock" type="number" class="form-control" id="stock">
                 </div>
+
                 <div class="col-12">
-                    <label for="productDescription">Descripción:</label>
-                    <textarea class="form-control" rows="5" id="productDescription" name="text"></textarea>
+                    <label for="description">Descripción:</label>
+                    <textarea [(ngModel)]="product.description" name="description" class="form-control" rows="5"
+                        id="description" name="text"></textarea>
                 </div>
+
                 <div class="col-md-4">
-                    <label for="productCategory" class="form-label">Categoría</label>
-                    <select id="productCategory" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
+                    <label for="category" class="form-label">Categoría</label>
+                    <select [(ngModel)]="category.categoryId" name="category" id="category" class="form-select">
+                        <option *ngFor="let c of categoriesList" [value]="c.categoryId" selected>
+                            {{c.name}}</option>
                     </select>
                     <br>
                     <div>
@@ -141,7 +150,7 @@
                             aria-expanded="false">
                             Crear categoría <i class="bi bi-caret-down-fill"></i>
                         </button>
-                        <form class="dropdown-menu p-4">
+                        <form (ngSubmit)="saveCategory()" class="dropdown-menu p-4">
                             <div class="mb-3">
                                 <label for="exampleDropdownFormEmail2" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="categoryName" name="newCategoryName">
@@ -154,7 +163,8 @@
                     <br>
                     <div class="col-12">
                         <div class="form-check" style="font-size: 20px;">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input [(ngModel)]="product.important" name="important" class="form-check-input"
+                                type="checkbox" id="important">
                             <label class="form-check-label" for="gridCheck">
                                 Destacado
                             </label>
@@ -162,10 +172,11 @@
                     </div>
                     <br>
                     <div class="col-12">
-                        <label for="productImage">Imagen:</label>
-                        <input type="file" accept="image/jpeg, image/png" id="productImage" name="image">
+                        <label for="image">Imagen:</label>
+                        <input name="productName" type="file" accept="image/jpeg, image/png" id="image" name="image">
                     </div>
                 </div>
+
                 <div class="col-12" style="margin-top: 70px;">
                     <button type="submit" class="btn btn-success">Crear producto</button>
                 </div>
@@ -185,3 +196,48 @@
 
     </div>
 </div>
+
+
+
+<!-- INICIO CANVAS - EDITAR PRODUCTO -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Editar producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form (ngSubmit)="updateProduct(productEditable.productId)">
+            <p>Nombre</p>
+            <input [(ngModel)]="productEditable.name" name="productNameEdit" type="text" class="form-control">
+
+            <p>Precio</p>
+            <input [(ngModel)]="productEditable.price" name="productPriceEdit" type="number" class="form-control">
+
+            <p>Descripción</p>
+            <textarea [(ngModel)]="productEditable.description" name="productDescriptionEdit" class="form-control"
+                rows="5" id="productDescription" name="text"></textarea>
+
+            <p>Categoría</p>
+            <select [(ngModel)]="productEditable.category.categoryId" name="productCategoryEdit" id="productCategory"
+                class="form-select">
+                <option *ngFor="let c of categoriesList" [value]="c.categoryId" selected>
+                    {{c.name}}</option>
+            </select>
+
+            <div class="form-check" style="font-size: 20px;">
+                <input [(ngModel)]="productEditable.important" name="productImportantEdit" class="form-check-input"
+                    type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Destacado
+                </label>
+            </div>
+
+            <p>Imagen</p>
+            <input type="file" accept="image/jpeg, image/png" id="productImage" name="image">
+
+            <button type="submit" class="btn btn-success">Actualizar</button>
+        </form>
+    </div>
+</div>
+
+<!-- FINAL CANVAS - EDITAR PRODUCTO -->
