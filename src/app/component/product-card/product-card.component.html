@@ -1,4 +1,4 @@
-<div class="card" style="margin-bottom: 25px;">
+<!-- <div class="card" style="margin-bottom: 25px;">
   <div *ngIf="product.important == true" class="badge">Destacado</div>
   <a href="">
     <img [src]="product.image" [ngClass]="{'img-blur': product.productStock.quantity === 0}" class="card-img-top"
@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-between">
       <p class="small"><a href="#!" class="text-muted">{{product.category.name}}</a></p>
       <p *ngIf="product.important == true" class="small text-danger">
-        <s>${{product.price + (product.price * 0.20)}}</s> <!-- descuento de 20% -->
+        <s>${{product.price + (product.price * 0.20)}}</s>
       </p>
     </div>
     <div class="d-flex justify-content-between mb-3">
@@ -27,4 +27,26 @@
     </div>
   </div>
   <button [disabled]="product.productStock.quantity === 0" (click)="addProductToCart(product)">{{product.productStock.quantity === 0 ? "No hay stock": "Agregar a carrito"}}</button>
+</div> -->
+
+<!-- NUEVA -->
+<div class="card" style="margin-bottom: 25px; margin: auto;">
+  <div *ngIf="product.important == true" class="badge">Destacado</div>
+  <a href="#" class="card-link text-danger like">
+    <i class="bi bi-heart"></i>
+    <i class="bi bi-heart-fill"></i>
+  </a>
+
+  <div class="imgBox">
+    <img src="https://i.pinimg.com/originals/c3/f8/b5/c3f8b5d3e9a61af0fcc7c67d5532ad38.png" alt="mouse corsair"
+      class="mouse">
+  </div>
+
+  <div class="contentBox">
+    <h3>{{product.name}}</h3>
+    <h2 class="price">${{product.price}}</h2>
+    <a routerLink="/" class="buy">Detalles</a>
+    <!-- <a class="buy">Detalles <i class="bi bi-cart"></i></a> Comprar -->
+  </div>
+
 </div>

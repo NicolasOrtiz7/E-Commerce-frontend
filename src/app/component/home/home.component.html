@@ -1,6 +1,6 @@
 <div>
     <!-- INICIO CAROUSEL -->
-    <div id="carouselExampleIndicators" class="carousel slide my-container-carousel">
+    <div id="carouselExampleIndicators" class="carousel slide my-container-carousel global-bg-blue">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -11,14 +11,17 @@
         </div>
         <div class="carousel-inner my-images-carousel">
             <div class="carousel-item active">
+                <div class="carousel-gradient"></div>
                 <img src="https://media.tycsports.com/files/2023/06/24/584696/messi_862x485.webp?v=1"
                     class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
+                <div class="carousel-gradient"></div>
                 <img src="https://www.fcbarcelona.com/photo-resources/2020/04/30/43337a9f-3781-4886-948c-f70912e4b1af/1920x1080_Messi_primerGol-min.jpg?width=1200&height=750"
                     class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
+                <div class="carousel-gradient"></div>
                 <img src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blte0037e9a9c00faf2/6480a698b7e802dae8e332bf/Messi.jpg?auto=webp&format=pjpg&width=3840&quality=60"
                     class="d-block w-100" alt="...">
             </div>
@@ -37,46 +40,45 @@
     </div>
     <!-- FINAL CAROUSEL -->
 
-    <br><br>
-
     <!-- INICIO CATEGORY CARDS -->
-    <h2>Categorias</h2>
-    <div class="d-flex flex-row my-div-category-card">
-        <div class="card text-bg-dark my-container-category-card">
-            <img src="https://media.tycsports.com/files/2024/01/10/663125/lionel-messi-inter-miami_416x234.webp?v=1"
-                class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Categoría</h5>
-            </div>
-        </div>
+    <div class="global-bg-blue section-categories">
 
-        <div class="card text-bg-dark my-container-category-card">
-            <img src="https://media.tycsports.com/files/2024/01/10/663125/lionel-messi-inter-miami_416x234.webp?v=1"
-                class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Categoría</h5>
-            </div>
-        </div>
+        <h2 class="subtitle">Categorías</h2>
+        <div class="ag-format-container">
+            <div class="ag-courses_box">
 
-        <div class="card text-bg-dark my-container-category-card">
-            <img src="https://media.tycsports.com/files/2024/01/10/663125/lionel-messi-inter-miami_416x234.webp?v=1"
-                class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Categoría</h5>
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Categoría
+                            <!-- UI/Web&amp;Graph design for teenagers 11-17&#160;years old -->
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            <!-- Text: -->
+                            <span class="ag-courses-item_date">
+                                <!-- Text -->
+                                Ver más
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
     <!-- FINAL CATEGORY CARDS -->
 
-    <br><br>
-
     <!-- INICIO PRODUCT CARDS -->
-    <h2>Destacados</h2>
-
-    <div class="container py-5">
-        <div class="row">
-            <div *ngFor="let p of productList" class="col-md-6 col-lg-4 mb-4 mb-md-0">
-                <app-product-card [product]="p"></app-product-card>
+    <div class=" global-bg-dark">
+        <h2 class="subtitle">Destacados</h2>
+        <div class="container py-5">
+            <div class="row">
+                <div *ngFor="let p of productList" class="col-md-6 col-lg-4 mb-4 mb-md-0">
+                    <app-product-card [product]="p"></app-product-card>
+                </div>
             </div>
         </div>
     </div>
@@ -85,4 +87,3 @@
 
 
 </div>
-<br><br>

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+.global-bg-dark{
+    background-color: #1a1e29;    
+    color: #ffffff;
+    font-size: 20px;
+}
+.global-bg-blue{
+    background-color: #132d46;
+}
+.global-bg-green{
+    background-color: #01c38e;    
+}
+.global-bg-white{
+    background-color: #ffff;    
+}
