@@ -15,7 +15,7 @@ a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
+    background: #132d46;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
@@ -29,7 +29,8 @@ a:focus {
 }
 
 .btn-color{
-    background-color: #daeaff;
+    background-color: #00a176;
+    color: white;
 }
 
 div button{

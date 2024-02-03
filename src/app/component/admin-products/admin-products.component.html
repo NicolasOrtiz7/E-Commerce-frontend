@@ -1,13 +1,13 @@
-<div class="wrapper">
+<div class="wrapper global-bg-dark">
     <!-- Page Content  -->
     <div id="content">
 
         <app-admin-navbar></app-admin-navbar>
 
-        <div style="overflow: scroll;">
+        <div style="width: 90%; margin: 0 auto;">
             <h2>Gestor de stock</h2>
 
-            <table class="table table-striped table-hover">
+            <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Imagen</th>
@@ -56,10 +56,10 @@
 
         <div class="line"></div>
 
-        <div style="overflow: scroll;">
+        <div style="width: 90%; margin: 0 auto;">
             <h2>Productos</h2>
 
-            <table class="table table-striped table-hover">
+            <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Imagen</th>
@@ -113,7 +113,7 @@
 
         <div class="line"></div>
 
-        <div>
+        <div style="width: 90%; margin: 0 auto;">
             <h2>Crear nuevo producto</h2>
 
             <form (ngSubmit)="saveProduct()" class="row g-3">
@@ -183,17 +183,6 @@
             </form>
 
         </div>
-
-        <div class="line"></div>
-
-        <div>
-            <h2>Sección</h2>
-            <p>Para agregar más datos o información</p>
-        </div>
-
-        <div class="line"></div>
-
-
     </div>
 </div>
 

@@ -16,8 +16,7 @@
                                     <div *ngFor="let p of shoppingCart"
                                         class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                            <img [src]="p.image" class="img-fluid rounded-3" alt="Cotton T-shirt">
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                             <h6 class="text-muted">{{p.category.name}}</h6>
@@ -128,20 +127,22 @@
                             <div class="col-12">
                                 <div class="d-flex flex-column">
                                     <p class="text mb-1">Email</p>
-                                    <input [(ngModel)]="customer.email" class="form-control mb-3" type="text" placeholder="Nombre/email del receptor"
-                                        value="customerEmail">
+                                    <input [(ngModel)]="customer.email" class="form-control mb-3" type="text"
+                                        placeholder="Nombre/email del receptor" value="customerEmail">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex flex-column">
                                     <p class="text mb-1">Ciudad</p>
-                                    <input [(ngModel)]="orderDetails.city" class="form-control mb-3" type="text" placeholder="Ciudad o localidad" value="city">
+                                    <input [(ngModel)]="orderDetails.city" class="form-control mb-3" type="text"
+                                        placeholder="Ciudad o localidad" value="city">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex flex-column">
                                     <p class="text mb-1">Dirección</p>
-                                    <input [(ngModel)]="orderDetails.address" class="form-control mb-3" type="text" placeholder="Calle y número" value="address">
+                                    <input [(ngModel)]="orderDetails.address" class="form-control mb-3" type="text"
+                                        placeholder="Calle y número" value="address">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -184,12 +185,14 @@
                         <form class="pb-3">
                             <div class="d-flex flex-row pb-3">
                                 <div class="d-flex align-items-center pe-2">
-                                    <input class="form-check-input" type="radio" name="visa" id="visa"
-                                        value="" aria-label="..." checked />
+                                    <input class="form-check-input" type="radio" name="visa" id="visa" value=""
+                                        aria-label="..." checked />
                                 </div>
                                 <div class="rounded border d-flex w-100 p-3 align-items-center">
                                     <p class="mb-0">
-                                        <img width="40px" src="https://cdn.iconscout.com/icon/free/png-128/free-visa-3-226460.png?f=webp" alt="">Visa Debit
+                                        <img width="40px"
+                                            src="https://cdn.iconscout.com/icon/free/png-128/free-visa-3-226460.png?f=webp"
+                                            alt="">Visa Debit
                                         Card
                                     </p>
                                     <div class="ms-auto">************3456</div>
@@ -203,7 +206,9 @@
                                 </div>
                                 <div class="rounded border d-flex w-100 p-3 align-items-center">
                                     <p class="mb-0">
-                                        <img width="40px" src="https://cdn.iconscout.com/icon/free/png-512/free-mastercard-25-675722.png?f=webp&w=256" alt="">Mastercard
+                                        <img width="40px"
+                                            src="https://cdn.iconscout.com/icon/free/png-512/free-mastercard-25-675722.png?f=webp&w=256"
+                                            alt="">Mastercard
                                         Office
                                     </p>
                                     <div class="ms-auto">************1038</div>
@@ -212,12 +217,14 @@
 
                             <div class="d-flex flex-row">
                                 <div class="d-flex align-items-center pe-2">
-                                    <input class="form-check-input" type="radio" name="paypal" id="paypal"
-                                        value="" aria-label="..." />
+                                    <input class="form-check-input" type="radio" name="paypal" id="paypal" value=""
+                                        aria-label="..." />
                                 </div>
                                 <div class="rounded border d-flex w-100 p-3 align-items-center">
                                     <p class="mb-0">
-                                        <img width="30px" src="https://cdn.iconscout.com/icon/free/png-512/free-paypal-4-226455.png?f=webp&w=256" alt="">PayPal
+                                        <img width="30px"
+                                            src="https://cdn.iconscout.com/icon/free/png-512/free-paypal-4-226455.png?f=webp&w=256"
+                                            alt="">PayPal
                                     </p>
                                     <div class="ms-auto">************1038</div>
                                 </div>
@@ -235,7 +242,8 @@
                                 <div class="col-12">
                                     <div class="d-flex flex-column">
                                         <p class="text mb-1">Nombre del titular</p>
-                                        <input disabled class="form-control mb-3" type="text" placeholder="Nombre que aparece en la tarjeta">
+                                        <input disabled class="form-control mb-3" type="text"
+                                            placeholder="Nombre que aparece en la tarjeta">
                                     </div>
                                 </div>
                                 <div class="col-12">
