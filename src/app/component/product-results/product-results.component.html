@@ -1,8 +1,8 @@
-<div>
+<div class="global-bg-dark">
     <div class="container py-5">
         <h2>Categoría</h2>
         <!-- Botón desplegable (dropdown) -->
-        <button type="button" class="btn btn-primary dropdown-toggle my-button" data-bs-toggle="dropdown"
+        <button type="button" class="btn global-bg-yellow dropdown-toggle my-button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Ordenar
         </button>
@@ -20,6 +20,6 @@
     </div>
 
     <div class="text-center"> 
-        <button (click)="loadMore()" *ngIf="currentPage < totalPagesLength - 1" class="btn btn-primary mb-5">Cargar más</button>
+        <button (click)="loadMore()" *ngIf="currentPage < totalPagesLength - 1" class="btn global-bg-yellow mb-5">Cargar más...</button>
     </div>
 </div>

@@ -48,7 +48,7 @@
                             </span>
                         </li>
                         <hr class="dropdown-divider">
-                        <button routerLink="/cart" class="btn btn-primary" style="margin: 10px;">Ver Carrito</button>
+                        <button routerLink="/cart" class="btn global-bg-green" style="margin: 10px;">Ver Carrito</button>
                         <strong> SUBTOTAL: ${{subtotal}}</strong>
                     </ul>
                 </li>
@@ -59,7 +59,7 @@
             <form (ngSubmit)="getProductsByKeyword()" class="d-flex mx-auto justify-content-center" role="search">
                 <input [(ngModel)]="keyword" placeholder="Buscar por nombre" name="keyword" autocomplete="off"
                     class="form-control me-2" type="search" aria-label="Search">
-                <button [disabled]="!keyword" class="btn btn-outline-success" type="submit">Buscar</button>
+                <button [disabled]="!keyword" class="btn global-bg-green" type="submit">Buscar</button>
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">

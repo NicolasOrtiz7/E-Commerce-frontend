@@ -1,36 +1,5 @@
-<!-- <div class="card" style="margin-bottom: 25px;">
-  <div *ngIf="product.important == true" class="badge">Destacado</div>
-  <a href="">
-    <img [src]="product.image" [ngClass]="{'img-blur': product.productStock.quantity === 0}" class="card-img-top"
-      alt="Gaming Laptop" />
-  </a>
-  <div class="card-body">
-    <div class="d-flex justify-content-between">
-      <p class="small"><a href="#!" class="text-muted">{{product.category.name}}</a></p>
-      <p *ngIf="product.important == true" class="small text-danger">
-        <s>${{product.price + (product.price * 0.20)}}</s>
-      </p>
-    </div>
-    <div class="d-flex justify-content-between mb-3">
-      <h5 class="mb-0">{{product.name}}</h5>
-      <h5 class="text-dark mb-0">${{product.price}}</h5>
-    </div>
-    <div class="d-flex justify-content-between mb-2">
-      <p class="text-muted mb-0">En stock: <span class="fw-bold">{{product.productStock.quantity}}</span></p>
-      <div class="ms-auto text-warning">
-        <i class="fa fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half-alt"></i>
-      </div>
-    </div>
-  </div>
-  <button [disabled]="product.productStock.quantity === 0" (click)="addProductToCart(product)">{{product.productStock.quantity === 0 ? "No hay stock": "Agregar a carrito"}}</button>
-</div> -->
-
 <!-- NUEVA -->
-<div class="card" style="margin-bottom: 25px; margin: auto;">
+<div class="card" style="margin: 15px auto">
   <div *ngIf="product.important == true" class="badge">Destacado</div>
   <a href="#" class="card-link text-danger like">
     <i class="bi bi-heart"></i>
@@ -38,15 +7,21 @@
   </a>
 
   <div class="imgBox">
-    <img src="https://i.pinimg.com/originals/c3/f8/b5/c3f8b5d3e9a61af0fcc7c67d5532ad38.png" alt="mouse corsair"
+    <img src="https://i.pinimg.com/originals/c3/f8/b5/c3f8b5d3e9a61af0fcc7c67d5532ad38.png" [ngClass]="{'img-blur': product.productStock.quantity === 0}" alt="mouse corsair"
       class="mouse">
   </div>
 
   <div class="contentBox">
     <h3>{{product.name}}</h3>
     <h2 class="price">${{product.price}}</h2>
-    <a routerLink="/" class="buy">Detalles</a>
-    <!-- <a class="buy">Detalles <i class="bi bi-cart"></i></a> Comprar -->
+    <!-- <a routerLink="/" class="buy">Detalles</a> -->
+
+    <button (click)="addProductToCart(product)" *ngIf="product.productStock.quantity !== 0; else noStock" class="buy">Agregar <i
+        class="bi bi-cart"></i></button>
+    <ng-template #noStock>
+      <button disabled class="buy">No hay stock</button>
+    </ng-template>
+
   </div>
 
 </div>

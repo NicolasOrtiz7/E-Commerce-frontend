@@ -130,6 +130,7 @@ body {
     text-decoration: none;
     background: #ffce00;
     border-radius: 30px;
+    border: none;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.5s;
@@ -138,6 +139,11 @@ body {
 .card:hover .contentBox .buy {
     top: 0;
     opacity: 1;
+    background: #a08000;
+}
+
+.card .contentBox .buy:disabled{   
+    background: #645000;
 }
 
 .mouse {

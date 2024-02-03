@@ -5,12 +5,39 @@
     color: #ffffff;
     font-size: 20px;
 }
+
+
 .global-bg-blue{
     background-color: #132d46;
+    color: #ffffff;
+    font-size: 20px;
 }
+
+
 .global-bg-green{
-    background-color: #01c38e;    
+    background-color: #01c38e;  
+    color: #ffffff;
 }
+.global-bg-green:hover{
+    background-color: #00a176;  
+}
+.global-bg-green:disabled{
+    background-color: #007958;  
+    border: none;
+}
+
+
 .global-bg-white{
-    background-color: #ffff;    
+    background-color: #ffff;  
+    font-size: 20px;  
+}
+
+
+.global-bg-yellow{
+    background-color: #f9b234;
+    font-size: 20px;
+}
+.global-bg-yellow:hover{
+    background-color: #f9b234;
+    color: black;
 }
