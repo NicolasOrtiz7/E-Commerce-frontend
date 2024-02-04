@@ -3,18 +3,33 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-/* CAROUSEL */
+/* ------------- CAROUSEL -------------  */
+
+/*CONTAINER */
 .my-container-carousel {
     height: 400px;
+    width: 100%;
     margin: auto;
+    overflow: hidden;
 }
 
+/*IMAGENES */
 .my-images-carousel {
     height: 400px;
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    align-items: normal;
+    height: 90vh;
+    top: -50%;
 }
-/* styles.css o tu archivo de estilos local */
+
+/* BOTONES DE PREVIO Y SIGUIENTE */
+.btn-carousel-center{
+    top: 25%;
+}
+
+/* DEGRADADO */
 .carousel-gradient {
     position: absolute;
     top: 0;
@@ -25,7 +40,7 @@
 }
 
 
-/*  */
+/* ----------------------------------  */
 
 .subtitle {
     text-align: center;
@@ -96,7 +111,7 @@ body {
     position: relative;
 
     /* Imagen */
-    background-image: url("https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blte0037e9a9c00faf2/6480a698b7e802dae8e332bf/Messi.jpg?auto=webp&format=pjpg&width=3840&quality=60");
+    /* background-image: url(""); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -7,7 +7,7 @@
   </a>
 
   <div class="imgBox">
-    <img src="https://i.pinimg.com/originals/c3/f8/b5/c3f8b5d3e9a61af0fcc7c67d5532ad38.png" [ngClass]="{'img-blur': product.productStock.quantity === 0}" alt="mouse corsair"
+    <img [src]="product.image" [ngClass]="{'img-blur': product.productStock.quantity === 0}" alt="mouse corsair"
       class="mouse">
   </div>
 

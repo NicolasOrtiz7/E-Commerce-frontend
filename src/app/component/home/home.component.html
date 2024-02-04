@@ -12,26 +12,25 @@
         <div class="carousel-inner my-images-carousel">
             <div class="carousel-item active">
                 <div class="carousel-gradient"></div>
-                <img src="https://media.tycsports.com/files/2023/06/24/584696/messi_862x485.webp?v=1"
+                <img src="https://cdn.shopify.com/s/files/1/0508/6747/0494/products/pdp_gallery_01_main_c51d1966-75fd-4295-acc4-6ff1f47faf5e_1200x@2x.png?v=1673274002"
                     class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
                 <div class="carousel-gradient"></div>
-                <img src="https://www.fcbarcelona.com/photo-resources/2020/04/30/43337a9f-3781-4886-948c-f70912e4b1af/1920x1080_Messi_primerGol-min.jpg?width=1200&height=750"
+                <img src="https://www.zonammorpg.com/wp-content/uploads/2023/01/ROCCAT_Magma-Mini_Press-Pic_7_3840x2160_No-Logo-1620x800.jpg"
                     class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
                 <div class="carousel-gradient"></div>
-                <img src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blte0037e9a9c00faf2/6480a698b7e802dae8e332bf/Messi.jpg?auto=webp&format=pjpg&width=3840&quality=60"
+                <img src="https://cashconverters.es/es/es/oportunidades/images/2020/01/accesorios-gamers.jpg"
                     class="d-block w-100" alt="...">
             </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            <button class="btn-carousel-center carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            <button class="btn-carousel-center carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
@@ -47,12 +46,12 @@
         <div class="ag-format-container">
             <div class="ag-courses_box">
 
-                <div class="ag-courses_item">
-                    <a href="#" class="ag-courses-item_link">
+                <div *ngFor="let c of categoryList" class="ag-courses_item">
+                    <a [style.background-image]="'url(' + c.image + ')'" [routerLink]="['/products']" [queryParams]="{category: c.name}" class="ag-courses-item_link">
                         <div class="ag-courses-item_bg"></div>
 
                         <div class="ag-courses-item_title">
-                            Categoría
+                            {{c.name}}
                             <!-- UI/Web&amp;Graph design for teenagers 11-17&#160;years old -->
                         </div>
 
