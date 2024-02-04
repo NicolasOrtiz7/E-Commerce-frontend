@@ -7,8 +7,8 @@
   </a>
 
   <div class="imgBox">
-    <img [src]="product.image" [ngClass]="{'img-blur': product.productStock.quantity === 0}" alt="mouse corsair"
-      class="mouse">
+    <img [src]="product.image" [ngClass]="{'img-disabled': product.productStock.quantity === 0}" alt="product"
+      class="productImg">
   </div>
 
   <div class="contentBox">

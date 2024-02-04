@@ -12,7 +12,7 @@
     z-index: 2;
 }
 
-.img-blur {
+.img-disabled {
     filter: grayscale(100%) saturate(0);
 }
 
@@ -64,7 +64,7 @@ body {
 }
 
 .card::after {
-    content: "";
+    content: "GAMER";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -75,6 +75,7 @@ body {
 
 .card .imgBox {
     position: relative;
+    overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -146,9 +147,13 @@ body {
     background: #645000;
 }
 
-.mouse {
+.productImg {
     height: 300px;
     width: auto;
+    transition: transform 0.3s ease-in-out;
+}
+.productImg:hover{
+    transform: scale(1.2);
 }
 
 .like {
