@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product, ProductCategory, ProductStock, StockEntity } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-products',
@@ -79,22 +80,34 @@ export class AdminProductsComponent implements OnInit {
   }
 
   updateProduct(productId: number) {
-    console.log(this.productEditable);
-    console.log(JSON.stringify(this.productEditable));
-
     this.productService.updateProduct(productId, this.productEditable).subscribe(
       data => {
         alert("Editado correctamente");
         this.ngOnInit();
       },
-      err => console.log(err)      
+      err => console.log(err)
     )
-
   }
 
-  saveCategory() {
+  disableProduct(productId: number) {
 
+
+    Swal.fire({
+      title: '¿Estás seguro de querer eliminar el producto?',
+      text: 'Se eliminará definitivamente sólo si nunca ha sido comprado. En caso contratio, se deshabilitará.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, continuar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productService.disableProduct(productId).subscribe(
+          data => this.ngOnInit()
+        );
+      }
+    });
   }
+
 
   // -------------- Categorías --------------
 
@@ -107,12 +120,19 @@ export class AdminProductsComponent implements OnInit {
     )
   }
 
+
+  saveCategory() {
+
+  }
+
+
   // -------------- Stock --------------
 
   stockList: StockEntity[] = [];
   currentStockPage: number = 0;
   totalStockPages: Array<number>;
   totalStockPagesLength: number;
+
 
   getStock(pageNumber: number) {
     this.productService.getAllStock(pageNumber).subscribe(
@@ -121,6 +141,12 @@ export class AdminProductsComponent implements OnInit {
         this.totalStockPages = new Array(data.totalPages);
         this.totalStockPagesLength = this.totalStockPages.length;
       }
+    )
+  }
+
+  updateStock(productId: number, quantity: number) {
+    this.productService.updateStock(productId, quantity).subscribe(
+      data => alert("Actualizado")
     )
   }
 

@@ -48,6 +48,10 @@ export class ProductService {
     return this.http.put(this.URL + "/" + productId, product);
   }
 
+  disableProduct(productId: number){
+    return this.http.put(this.URL + "/disable/" + productId, {});
+  }
+
   // --------- Categories ---------
 
   getAllCategories(){
@@ -73,7 +77,7 @@ export class ProductService {
   }
 
   updateStock(productId: number, quantity: number){
-    
+    return this.http.put(this.URL + "/stock/product/" + productId + "/" + quantity, {});
   }
 
 }

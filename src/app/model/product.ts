@@ -6,6 +6,7 @@ export class Product {
     image: string;
     price: number;
     important: boolean;
+    active: boolean;
 
     category: ProductCategory;
     productStock: ProductStock;

@@ -12,9 +12,8 @@
                     <tr>
                         <th scope="col">Imagen</th>
                         <th scope="col">ID</th>
-                        <th scope="col" style="width: 200px;">Nombre</th>
+                        <th scope="col" style="width: 400px;">Nombre</th>
                         <th scope="col">Stock</th>
-                        <th scope="col">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,10 +24,14 @@
                         <td>{{p.stockId}}</td>
                         <td>{{p.product.name}}</td>
                         <td>
-                            <input style="width: 80px;" type="number" [value]="p.quantity">
-                        </td>
-                        <td>
-                            <button class="btn btn-success">Guardar</button>
+                            <div style="display: flex;">
+                                <form (ngSubmit)="updateStock(p.product.productId, p.quantity)"
+                                    style="margin-right: 10px;">
+                                    <input style="width: 80px;" name="quantity" [(ngModel)]="p.quantity" type="number"
+                                        [value]="p.quantity" required>
+                                    <button class="btn btn-success">Guardar</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -67,6 +70,7 @@
                         <th scope="col" style="width: 200px;">Nombre</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Categoría</th>
+                        <th scope="col">Estado</th>
                         <th scope="col">Acción</th>
                     </tr>
                 </thead>
@@ -80,12 +84,19 @@
                         <td>{{p.price}}</td>
                         <td>{{p.category.name}}</td>
                         <td>
-
+                            <span class="badge rounded-pill"
+                                [ngClass]="{'text-bg-success': p.active === true, 'text-bg-danger': p.active === false}">
+                                {{ p.active ? 'Activo' : 'Inactivo' }}
+                            </span> &nbsp;
+                            <span *ngIf="p.important === true"
+                                class="badge rounded-pill text-bg-warning">Destacado</span>
+                        </td>
+                        <td>
                             <button (click)="getProductById(p.productId)" class="btn btn-secondary" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                                 aria-controls="offcanvasRight">
                                 Editar</button> &nbsp;
-                            <button class="btn btn-danger">Eliminar</button>
+                            <button (click)="disableProduct(p.productId)" class="btn btn-danger">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -218,6 +229,14 @@
                     type="checkbox" id="gridCheck">
                 <label class="form-check-label" for="gridCheck">
                     Destacado
+                </label>
+            </div>
+
+            <div class="form-check" style="font-size: 20px;">
+                <input [(ngModel)]="productEditable.active" name="productImportantActive" class="form-check-input"
+                    type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Habilitado
                 </label>
             </div>
 
