@@ -23,12 +23,12 @@
                                 <thead>
                                     <tr>
                                         <th>ID Orden</th>
+                                        <th>Productos</th>
+                                        <th>Comprador</th>
                                         <th>Total</th>
                                         <th>Fecha</th>
                                         <th>Pago</th>
-                                        <th>Comprador</th>
                                         <th>Estado</th>
-                                        <th>Productos</th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                             colspan="1" style="width: 0px;"
                                             aria-label="Action: activate to sort column ascending">Action
@@ -41,14 +41,6 @@
                                         <td style="width: 10px;">
                                             <a class="font-weight-bold">#{{o.orderId}}</a>
                                         </td>
-                                        <td style="width: 10px;">${{o.orderDetails.total}}</td>
-                                        <td style="width: 100px;">{{o.datetime}}</td>
-                                        <td style="width: 20px;">{{o.orderDetails.payment}}
-                                        </td>
-                                        <td style="width: 100px;">{{o.customer.email}}</td>
-                                        <td style="width: 20px;"><span
-                                                class="badge bg-success-subtle text-success">Pagado</span>
-                                        </td>
                                         <td style="width: 100px;">
                                             <ul>
                                                 <li *ngFor="let p of o.orderItems.slice(0, 3)">
@@ -56,6 +48,14 @@
                                                 <button *ngIf="o.orderItems.length > 3"
                                                     class="btn btn-outline-secondary">más...</button>
                                             </ul>
+                                        </td>
+                                        <td style="width: 100px;">{{o.customer.email}}</td>
+                                        <td style="width: 10px;">${{o.orderDetails.total}}</td>
+                                        <td style="width: 100px;">{{o.datetime}}</td>
+                                        <td style="width: 20px;">{{o.orderDetails.payment}}
+                                        </td>
+                                        <td style="width: 20px;"><span
+                                                class="badge bg-success-subtle text-success">Pagado</span>
                                         </td>
                                         <td>
                                             <button class="btn btn-secondary">Detalles</button>

@@ -19,6 +19,10 @@ export class ProductService {
   getAllProducts(page: number): Observable<any>{
     return this.http.get<Product[]>(this.URL + "?page=" + page);
   }
+
+  getAllActiveProducts(page: number): Observable<any>{
+    return this.http.get<Product[]>(this.URL + "/actives?page=" + page);
+  }
   
   getImportantProducts(): Observable<any>{
     return this.http.get<Product[]>(this.URL + "/search/important");

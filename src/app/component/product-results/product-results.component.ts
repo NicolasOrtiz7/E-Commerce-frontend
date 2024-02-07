@@ -52,7 +52,7 @@ export class ProductResultsComponent implements OnInit {
 
   // Obtiene todos los productos sin filtros
   getAllProducts(pageNumber: number) {
-    this.productService.getAllProducts(pageNumber).subscribe(
+    this.productService.getAllActiveProducts(pageNumber).subscribe(
       data => {
         this.productList = data.content;
         this.totalPages = new Array(data.totalPages);
@@ -98,7 +98,7 @@ export class ProductResultsComponent implements OnInit {
         err => console.log(err))
     }
     else {
-      this.productService.getAllProducts(this.currentPage + 1).subscribe(
+      this.productService.getAllActiveProducts(this.currentPage + 1).subscribe(
         data => this.updateList(data),
         err => console.log(err))
     }
